@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rigidbodyPlayer;
     public LayerMask layerCanJump;
-
+    public Transform rotationpoint;
+    public Transform playerTransform;
     public RaycastHit hit;
 
     private bool jump;
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpHeight = 5f;
 
 
-    private float movementspeed = 10f;
+    private float movementspeed = 7.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,10 +53,17 @@ public class PlayerMovement : MonoBehaviour
     }
     private void MovePlayer()
     {
-        Vector3 horizontalspeed = horizontal * movementspeed * Vector3.right;
-        Vector3 verticalspeed = vertical * movementspeed * Vector3.forward;
-        rigidbodyPlayer.velocity = new Vector3(horizontalspeed.x, rigidbodyPlayer.velocity.y, verticalspeed.z);
-
+        Vector3 horizontalspeed = horizontal  * transform.right;
+        Vector3 verticalspeed = vertical  * transform.forward;
+        Vector3 SumSpeed = horizontalspeed + verticalspeed;
+        SumSpeed = new Vector3(SumSpeed.x, 0f, SumSpeed.z);
+        SumSpeed = SumSpeed.normalized * movementspeed;
+        rigidbodyPlayer.AddForce(new Vector3(SumSpeed.x, 0f, SumSpeed.z));
+        
+        if (Input.GetKey(KeyCode.W))
+        {
+           transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, rotationpoint.eulerAngles.y, Time.deltaTime*2f), transform.eulerAngles.z);
+        }
     }
     private void Jump()
     {
