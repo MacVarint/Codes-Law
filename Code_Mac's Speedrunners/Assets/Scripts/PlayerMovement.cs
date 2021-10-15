@@ -53,17 +53,37 @@ public class PlayerMovement : MonoBehaviour
     }
     private void MovePlayer()
     {
-        Vector3 horizontalspeed = horizontal  * transform.right;
-        Vector3 verticalspeed = vertical  * transform.forward;
+        Vector3 horizontalspeed = horizontal * transform.right;
+        Vector3 verticalspeed = vertical * transform.forward;
         Vector3 SumSpeed = horizontalspeed + verticalspeed;
         SumSpeed = new Vector3(SumSpeed.x, 0f, SumSpeed.z);
         SumSpeed = SumSpeed.normalized * movementspeed;
         rigidbodyPlayer.AddForce(new Vector3(SumSpeed.x, 0f, SumSpeed.z));
-        
+
         if (Input.GetKey(KeyCode.W))
         {
-           transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, rotationpoint.eulerAngles.y, Time.deltaTime*2f), transform.eulerAngles.z);
+            float dif = Mathf.Abs(transform.eulerAngles.y - rotationpoint.eulerAngles.y);
+            if (dif < 180)
+            {
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, rotationpoint.eulerAngles.y, Time.deltaTime * 2f), transform.eulerAngles.z);
+            }
+            else
+            {
+                float eulerAngY = 0;
+                if (transform.eulerAngles.y > rotationpoint.eulerAngles.y)
+                {
+                    eulerAngY = 360 + rotationpoint.eulerAngles.y;
+                }
+                else if(transform.eulerAngles.y < rotationpoint.eulerAngles.y)
+                {
+                    eulerAngY = rotationpoint.eulerAngles.y -360;
+                }
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, eulerAngY, Time.deltaTime * 2f), transform.eulerAngles.z);
+            }
+
+
         }
+        //Debug.Log("<transform.y>:" + transform.eulerAngles.y + "<rotationpoint.y>:" + rotationpoint.eulerAngles.y);
     }
     private void Jump()
     {

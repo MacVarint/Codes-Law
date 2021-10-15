@@ -30,7 +30,7 @@ public class BotScript : MonoBehaviour
     {
         Vector3 forwardDir = 3 * transform.forward; //time.Deltatime?
         rigidbodyBot.velocity = new Vector3(forwardDir.x, rigidbodyBot.velocity.y, forwardDir.z);
-        Debug.Log((transform.position - currentMarker.transform.position).magnitude);
+        //Debug.Log((transform.position - currentMarker.transform.position).magnitude);
         if ((transform.position - currentMarker.transform.position).magnitude < switchDistance)
         {
             markerNumber++;
