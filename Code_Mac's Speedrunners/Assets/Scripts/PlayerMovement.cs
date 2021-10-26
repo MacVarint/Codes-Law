@@ -17,10 +17,10 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     private bool interact;
     private float jumpFromFeet = 3f;
-    private float jumpHeight = 5f;
+    private float jumpHeight = 4f;
 
 
-    private float movementspeed = 7.5f;
+    private float movementspeed = 3f;
 
     // Start is called before the first frame update
     void Start()
