@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform rotationpoint;
     public Transform playerTransform;
     public RaycastHit hit;
+    public BoxCollider interactionBox;
 
     private bool jump;
     private float horizontal;
@@ -20,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private float jumpHeight = 4f;
 
 
-    private float movementspeed = 3f;
+    private float movementspeed = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         Inputs();
         CheckForGround();
         MovePlayer();
-        
     }
     private void CheckForGround()
     {
@@ -49,7 +49,6 @@ public class PlayerMovement : MonoBehaviour
         jump = Input.GetButton("Jump");
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        interact = Input.GetButtonDown("Interact");
     }
     private void MovePlayer()
     {
