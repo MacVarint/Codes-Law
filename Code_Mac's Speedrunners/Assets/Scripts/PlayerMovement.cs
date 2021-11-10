@@ -20,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     private float jumpFromFeet = 3f;
     private float jumpHeight = 4f;
 
+    public bool debugLog;
+
 
     private float movementspeed = 5f;
 
@@ -49,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
         jump = Input.GetButton("Jump");
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+        if (debugLog)
+        {
+            Debug.Log(vertical + "=V:::::::" + horizontal +"=H");
+        }
     }
     private void MovePlayer()
     {

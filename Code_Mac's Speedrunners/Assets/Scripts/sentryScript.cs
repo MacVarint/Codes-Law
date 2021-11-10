@@ -4,17 +4,29 @@ using UnityEngine;
 
 public class sentryScript : MonoBehaviour
 {
-    public Transform pole;
-    public Rigidbody rigidbodyBot;
+    
     //public Vector3 rigidbodyBotRotation;
+
+    //Markers
     public GameObject[] markers;
     public GameObject currentMarker;
     private int markerNumber = 0;
-    public float switchDistance = 0;
-    public bool aggroOnPlayer = false;
+    //Bot
+    public Rigidbody rigidbodyBot;
     public bool armsUp = false;
     public Transform leftArm;
     public Transform rightArm;
+    public bool chaseField = false;
+    public float damping;
+    public bool aggroOnPlayer = false;
+    public float switchDistance = 0;
+
+    //Player
+    public Collider target;
+
+    //Headlights
+    public Transform pole;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +36,24 @@ public class sentryScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        headlights();
+        if (aggroOnPlayer)
+        {
+            AggroOnPlayer();
+        }
         MoveBot();
+        
+        headlights();
+    }
+    void AggroOnPlayer()
+    {
+        if (chaseField)
+        {
+            rigidbodyBot.transform.LookAt(target.transform);
+        }
+        /*var lookPos = target.transform.position - transform.position;
+        lookPos.y = 0;
+        var rotation = Quaternion.LookRotation(lookPos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, Time.deltaTime * damping);*/
     }
     void headlights()
     {

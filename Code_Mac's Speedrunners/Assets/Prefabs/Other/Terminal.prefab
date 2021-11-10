@@ -367,7 +367,7 @@ GameObject:
   - component: {fileID: 5719799736481528920}
   m_Layer: 0
   m_Name: Acces denied text
-  m_TagString: acces text d
+  m_TagString: Acces text d
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1596,6 +1596,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionHud: {fileID: 0}
+  insideCollider: 0
+  accesTextGranted: {fileID: 2203328613163265401}
+  accesTextDenied: {fileID: 2192561551863880234}
 --- !u!1 &7616938694730101963
 GameObject:
   m_ObjectHideFlags: 0
