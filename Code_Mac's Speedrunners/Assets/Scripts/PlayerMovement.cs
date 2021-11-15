@@ -6,24 +6,26 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public Rigidbody rigidbodyPlayer;
+
     public LayerMask layerCanJump;
     public Transform rotationpoint;
-    public Transform playerTransform;
-    public RaycastHit hit;
-    public BoxCollider interactionBox;
 
-    private bool jump;
+    public RaycastHit hit;
+
+
+    //Player
+    public Rigidbody rigidbodyPlayer;
+    public Transform playerTransform;
+
+
+
+    //Movement
     private float horizontal;
     private float vertical;
-    private bool interact;
-    private float jumpFromFeet = 3f;
-    private float jumpHeight = 4f;
-
-    public bool debugLog;
-
-
     private float movementspeed = 5f;
+    private bool jump;
+    private float jumpHeight = 4f;
+    private float jumpFromFeet = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         CheckForGround();
         MovePlayer();
     }
-    private void CheckForGround()
+    private void CheckForGround() //Checks for ground using raycast
     {
         
         if(Physics.Raycast(transform.position, Vector3.down, out hit, jumpFromFeet, layerCanJump))
@@ -46,33 +48,33 @@ public class PlayerMovement : MonoBehaviour
             Jump();
         }
     }
-    private void Inputs()
+    private void Inputs() //These are all the inputs
     {
         jump = Input.GetButton("Jump");
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        if (debugLog)
-        {
-            Debug.Log(vertical + "=V:::::::" + horizontal +"=H");
-        }
     }
-    private void MovePlayer()
+    private void MovePlayer() //Moves player
     {
-        Vector3 horizontalspeed = horizontal * transform.right;
-        Vector3 verticalspeed = vertical * transform.forward;
-        Vector3 SumSpeed = horizontalspeed + verticalspeed;
+        Vector3 horizontalspeed = horizontal * movementspeed * Vector3.right;
+        Vector3 verticalspeed = vertical * movementspeed * Vector3.forward;
+        //Vector3 horizontalspeed = horizontal * movementspeed * Vector3.right;
+        rigidbodyPlayer.velocity = new Vector3(horizontalspeed.x, rigidbodyPlayer.velocity.y, verticalspeed.z);
+
+        //Old system 
+        /*Vector3 SumSpeed = horizontalspeed + verticalspeed;
         SumSpeed = new Vector3(SumSpeed.x, 0f, SumSpeed.z);
         SumSpeed = SumSpeed.normalized * movementspeed;
-        rigidbodyPlayer.AddForce(new Vector3(SumSpeed.x, 0f, SumSpeed.z));
+        rigidbodyPlayer.AddForce(new Vector3(SumSpeed.x, 0f, SumSpeed.z));*/
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.W)) //Checks if you are pressing W
         {
-            float dif = Mathf.Abs(transform.eulerAngles.y - rotationpoint.eulerAngles.y);
-            if (dif < 180)
+            float dif = Mathf.Abs(transform.eulerAngles.y - rotationpoint.eulerAngles.y); //Checks the Y rotation of the player
+            if (dif < 180) //Checks if Code needs to look to the left
             {
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, rotationpoint.eulerAngles.y, Time.deltaTime * 2f), transform.eulerAngles.z);
             }
-            else
+            else //Checks if the Code needs to look to the right
             {
                 float eulerAngY = 0;
                 if (transform.eulerAngles.y > rotationpoint.eulerAngles.y)
@@ -85,14 +87,10 @@ public class PlayerMovement : MonoBehaviour
                 }
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, eulerAngY, Time.deltaTime * 2f), transform.eulerAngles.z);
             }
-
-
         }
-        //Debug.Log("<transform.y>:" + transform.eulerAngles.y + "<rotationpoint.y>:" + rotationpoint.eulerAngles.y);
     }
-    private void Jump()
+    private void Jump() //Checks if you press space
     {
-        // Try to jump with boost
         if (jump)
         {
             rigidbodyPlayer.AddForce(Vector2.up * jumpHeight * 2);
