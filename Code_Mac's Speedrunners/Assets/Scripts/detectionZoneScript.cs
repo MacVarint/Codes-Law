@@ -6,6 +6,7 @@ public class detectionZoneScript : MonoBehaviour
 {
     private Collider target;
     public sentryScript sentryScript;
+    public BotScript botScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,22 @@ public class detectionZoneScript : MonoBehaviour
     {
         if (other.gameObject.name == "Player")
         {
-            target = other;
-            sentryScript.target = target;
-            sentryScript.aggroOnPlayer = true;
+            if (this.gameObject.tag == "Sentry")
+            {
+                target = other;
+                sentryScript.target = target;
+                sentryScript.aggroOnPlayer = true;
+            }
+            else if (this.gameObject.tag == "Bot")
+            {
+                target = other;
+                botScript.target = target;
+                botScript.aggroOnPlayer = true;
+            }
+            else
+            {
+                Debug.Log("Error enter detectionzone");
+            }
         }
     }
 }

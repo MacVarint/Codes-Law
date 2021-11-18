@@ -6,10 +6,9 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
-
+    //Other
     public LayerMask layerCanJump;
     public Transform rotationpoint;
-
     public RaycastHit hit;
 
 
@@ -26,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jump;
     private float jumpHeight = 4f;
     private float jumpFromFeet = 3f;
+    private float turnspeed = 4f;
 
     // Start is called before the first frame update
     void Start()
@@ -56,10 +56,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void MovePlayer() //Moves player
     {
-        Vector3 horizontalspeed = horizontal * movementspeed * Vector3.right;
-        Vector3 verticalspeed = vertical * movementspeed * Vector3.forward;
+        Vector3 horizontalspeed = horizontal * transform.right;
+        Vector3 verticalspeed = vertical * transform.forward;
+        Vector3 moveDirection = horizontalspeed + verticalspeed;
+        moveDirection = moveDirection.normalized;
+        Vector3 realspeed = moveDirection * movementspeed;
         //Vector3 horizontalspeed = horizontal * movementspeed * Vector3.right;
-        rigidbodyPlayer.velocity = new Vector3(horizontalspeed.x, rigidbodyPlayer.velocity.y, verticalspeed.z);
+        rigidbodyPlayer.velocity = new Vector3(realspeed.x, rigidbodyPlayer.velocity.y, realspeed.z);
 
         //Old system 
         /*Vector3 SumSpeed = horizontalspeed + verticalspeed;
@@ -72,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             float dif = Mathf.Abs(transform.eulerAngles.y - rotationpoint.eulerAngles.y); //Checks the Y rotation of the player
             if (dif < 180) //Checks if Code needs to look to the left
             {
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, rotationpoint.eulerAngles.y, Time.deltaTime * 2f), transform.eulerAngles.z);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, rotationpoint.eulerAngles.y, Time.deltaTime * turnspeed), transform.eulerAngles.z);
             }
             else //Checks if the Code needs to look to the right
             {
@@ -85,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     eulerAngY = rotationpoint.eulerAngles.y -360;
                 }
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, eulerAngY, Time.deltaTime * 2f), transform.eulerAngles.z);
+                transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, eulerAngY, Time.deltaTime * turnspeed), transform.eulerAngles.z);
             }
         }
     }

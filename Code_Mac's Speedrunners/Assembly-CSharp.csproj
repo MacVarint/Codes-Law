@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerMouse.cs" />
     <Compile Include="Assets\Scripts\sentryScript.cs" />
+    <Compile Include="Assets\Scripts\DoorController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 5656078609287843141}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Sentry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -933,6 +933,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentryScript: {fileID: 6342934677992587622}
+  botScript: {fileID: 0}
+  sentry: {fileID: 0}
 --- !u!1 &2287347054346721637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,7 +1298,7 @@ GameObject:
   - component: {fileID: 7757448388251019963}
   m_Layer: 0
   m_Name: Sentry
-  m_TagString: Untagged
+  m_TagString: Sentry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2232,7 +2234,7 @@ GameObject:
   - component: {fileID: 3634911769287109794}
   m_Layer: 0
   m_Name: chaseField
-  m_TagString: Untagged
+  m_TagString: Sentry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2313,6 +2315,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentryScript: {fileID: 6342934677992587622}
+  botScript: {fileID: 0}
 --- !u!64 &3634911769287109794
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2903,7 +2906,7 @@ GameObject:
   - component: {fileID: 3002053277458881345}
   m_Layer: 0
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Sentry
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2998,6 +3001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sentryScript: {fileID: 6342934677992587622}
+  botScript: {fileID: 0}
+  sentry: {fileID: 0}
 --- !u!1 &7524048618612406384
 GameObject:
   m_ObjectHideFlags: 0

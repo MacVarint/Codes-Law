@@ -10,6 +10,9 @@ public class TerminalScript : MonoBehaviour
     public bool insideCollider;
     public GameObject accesTextGranted;
     public GameObject accesTextDenied;
+
+    //Animation
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +30,27 @@ public class TerminalScript : MonoBehaviour
             if (interact)
             {
                 interactionHud.SetActive(false);
-                accesTextGranted.SetActive(true);
-                accesTextDenied.SetActive(false);
+
+                if (animator.GetBool("State"))
+                {
+                    accesTextGranted.SetActive(false);
+                    accesTextDenied.SetActive(true);
+                    animator.SetBool("State", false);
+                }
+                else if (!animator.GetBool("State"))
+                {
+                    accesTextGranted.SetActive(true);
+                    accesTextDenied.SetActive(false);
+                    animator.SetBool("State", true);
+                }
+                else
+                {
+                    Debug.Log("Error Boolean State");
+                }
+
             }
         }
+        
     }
     private void OnTriggerEnter(Collider other)
     {

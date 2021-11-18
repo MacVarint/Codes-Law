@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class BotScript : MonoBehaviour
 {
+    //Bot
     public Rigidbody rigidbodyBot;
-    //public Vector3 rigidbodyBotRotation;
+    public bool chaseField = false;
+    public bool aggroOnPlayer = false;
+    public bool armsUp = false;
+    public Transform screws;
+
+    //Markers
     public GameObject[] markers;
     public GameObject currentMarker;
     private int markerNumber = 0;
     public float switchDistance = 0;
-    public bool aggroOnPlayer = false;
-    public bool armsUp = false;
-    public Transform screws;
+
+    //Player
+    public Collider target;
 
     // Start is called before the first frame update
     void Start()
@@ -23,14 +29,23 @@ public class BotScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (aggroOnPlayer)
+        {
+            AggroOnPlayer();
+        }
         MoveBot();
     }
-
+    void AggroOnPlayer()
+    {
+        if (chaseField)
+        {
+            rigidbodyBot.transform.LookAt(target.transform);
+        }
+    }
     void MoveBot()
     {
         Vector3 forwardDir = 3 * transform.forward; //time.Deltatime?
         rigidbodyBot.velocity = new Vector3(forwardDir.x, rigidbodyBot.velocity.y, forwardDir.z);
-        //Debug.Log((transform.position - currentMarker.transform.position).magnitude);
         if ((transform.position - currentMarker.transform.position).magnitude < switchDistance)
         {
             markerNumber++;
@@ -67,8 +82,5 @@ public class BotScript : MonoBehaviour
     void RotateBot()
     {
         rigidbodyBot.transform.LookAt(currentMarker.transform);
-        //rigidbodyBotRotation = new Vector3(0,45,0);
-        //Quaternion deltaRotation = Quaternion.Euler(rigidbodyBotRotation * Time.fixedDeltaTime);
-        //rigidbodyBot.MoveRotation(rigidbodyBot.rotation * deltaRotation);
     }
 }
