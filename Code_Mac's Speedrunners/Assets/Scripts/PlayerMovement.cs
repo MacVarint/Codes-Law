@@ -16,7 +16,8 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rigidbodyPlayer;
     public Transform playerTransform;
 
-
+    //temp
+    public int attackDamage = 4;
 
     //Movement
     private float horizontal;

@@ -339,14 +339,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a82c4baaa9d9944bd46fbcb1a04a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbodyPlayer: {fileID: 1173872333308128406}
   layerCanJump:
     serializedVersion: 2
     m_Bits: 4294967295
   rotationpoint: {fileID: 1173872333306355883}
+  rigidbodyPlayer: {fileID: 1173872333308128406}
   playerTransform: {fileID: 1173872333308128407}
-  interactionBox: {fileID: 0}
-  debugLog: 0
+  attackDamage: 4
 --- !u!114 &1173872333308128404
 MonoBehaviour:
   m_ObjectHideFlags: 0

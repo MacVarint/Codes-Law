@@ -6,6 +6,7 @@ public class chaseFieldScript : MonoBehaviour
 {
     public sentryScript sentryScript;
     public BotScript botScript;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "Player")

@@ -23,7 +23,7 @@ public class BotScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
@@ -49,13 +49,13 @@ public class BotScript : MonoBehaviour
         if ((transform.position - currentMarker.transform.position).magnitude < switchDistance)
         {
             markerNumber++;
-            if(markerNumber >= markers.Length)
+            if (markerNumber >= markers.Length)
             {
                 markerNumber = 0;
             }
             currentMarker = markers[markerNumber];
         }
-        if(aggroOnPlayer == true)
+        if (aggroOnPlayer == true)
         {
             ChasePlayer();
         }
@@ -77,7 +77,6 @@ public class BotScript : MonoBehaviour
             screws.Rotate(0, 90, 0);
             armsUp = true;
         }
-        
     }
     void RotateBot()
     {
