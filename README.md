@@ -1,1 +1,1 @@
-Code_Mac's speedrunners
+This game is called Code's Law.
