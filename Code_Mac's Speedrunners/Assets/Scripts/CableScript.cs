@@ -25,18 +25,23 @@ public class CableScript : MonoBehaviour
     {
         if (parentTerminal.animator.GetBool("State"))
         {
+            timer = timer + Time.deltaTime * 10;
             if (timer < (this.transform.childCount))
             {
-                timer = timer + Time.deltaTime * 10;
                 count = (int)timer;
                 cable[count].gameObject.GetComponent<MeshRenderer>().material = on;
+            }
+            else
+            {
+                timer = (this.transform.childCount)-1;
+                count = (int)timer;
             }
         }
         else
         { 
+            timer = timer - Time.deltaTime * 10;
             if (timer > 0 )
             {
-                timer = timer - Time.deltaTime * 10;
                 count = (int)timer;
                 cable[count].gameObject.GetComponent<MeshRenderer>().material = off;
             }
