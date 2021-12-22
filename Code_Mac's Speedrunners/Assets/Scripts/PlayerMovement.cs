@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         Inputs();
         CheckForGround();
         MovePlayer();
+        Jump();
     }
     private void CheckForGround() //Checks for ground using raycast
     {
@@ -65,11 +66,6 @@ public class PlayerMovement : MonoBehaviour
         //Vector3 horizontalspeed = horizontal * movementspeed * Vector3.right;
         rigidbodyPlayer.velocity = new Vector3(realspeed.x, rigidbodyPlayer.velocity.y, realspeed.z);
 
-        //Old system 
-        /*Vector3 SumSpeed = horizontalspeed + verticalspeed;
-        SumSpeed = new Vector3(SumSpeed.x, 0f, SumSpeed.z);
-        SumSpeed = SumSpeed.normalized * movementspeed;
-        rigidbodyPlayer.AddForce(new Vector3(SumSpeed.x, 0f, SumSpeed.z));*/
 
         if (Input.GetKey(KeyCode.W)) //Checks if you are pressing W
         {

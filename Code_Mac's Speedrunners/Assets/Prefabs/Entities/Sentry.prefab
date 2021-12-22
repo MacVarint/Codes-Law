@@ -934,7 +934,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentryScript: {fileID: 6342934677992587622}
   botScript: {fileID: 0}
-  sentry: {fileID: 0}
 --- !u!1 &2287347054346721637
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,20 +1333,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f49c6a504d8b84e91e4025e9bd7e30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigidbodyBot: {fileID: 378768075365872819}
+  armsUp: 0
+  leftArm: {fileID: 1149167968363582887}
+  rightArm: {fileID: 8195655629247292113}
+  chaseField: 0
+  aggroOnPlayer: 0
+  switchDistance: 1
   markers:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   currentMarker: {fileID: 0}
-  rigidbodyBot: {fileID: 378768075365872819}
-  armsUp: 0
-  leftArm: {fileID: 1149167968363582887}
-  rightArm: {fileID: 8195655629247292113}
-  chaseField: 0
-  damping: 0
-  aggroOnPlayer: 0
-  switchDistance: 1
   target: {fileID: 0}
   pole: {fileID: 9034648724263936307}
 --- !u!54 &378768075365872819
@@ -3002,7 +3000,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentryScript: {fileID: 6342934677992587622}
   botScript: {fileID: 0}
-  sentry: {fileID: 0}
 --- !u!1 &7524048618612406384
 GameObject:
   m_ObjectHideFlags: 0

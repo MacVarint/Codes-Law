@@ -58,13 +58,16 @@
     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\DisableHud.cs" />
     <Compile Include="Assets\Scripts\BotScript.cs" />
+    <Compile Include="Assets\Scripts\ConfirmRegister.cs" />
     <Compile Include="Assets\Scripts\chaseFieldScript.cs" />
     <Compile Include="Assets\Scripts\detectionZoneScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerMouse.cs" />
+    <Compile Include="Assets\Scripts\Click.cs" />
     <Compile Include="Assets\Scripts\CableScript.cs" />
     <Compile Include="Assets\Scripts\DoorController.cs" />
     <Compile Include="Assets\Scripts\sentryScript.cs" />
+    <Compile Include="Assets\Scripts\ConfirmLogin.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
