@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class TimerScript : MonoBehaviour
 {
-    public Text milisecondsText;
+    public Text millisecondsText;
     public Text secondsText;
     public Text minutesText;
-    private float timer = 0f;
+    public float timer = 0f;
     public int miliSeconds = 0;
     public int seconds = 0;
     public int minutes = 0;
@@ -31,7 +31,7 @@ public class TimerScript : MonoBehaviour
         seconds = (int)Mathf.Floor(timer % 60);
         minutes = (int)Mathf.Floor(timer / 60);
 
-        milisecondsText.text = miliSeconds.ToString("000");
+        millisecondsText.text = miliSeconds.ToString("000");
         secondsText.text = seconds.ToString("00");
         minutesText.text = minutes.ToString("00");
     }

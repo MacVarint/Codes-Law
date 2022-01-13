@@ -7,11 +7,12 @@ public class ScoreHolder : MonoBehaviour
     public static ScoreHolder scoreHolder;
     public int minutesPlayed;
     public int secondsPlayed;
-    public int milisecondsPlayed;
+    public int millisecondsPlayed;
     public int doorsOpened;
     public int terminalsHacked;
     public bool gameOver;
-
+    public float timer;
+    public int level;
 
     // Start is called before the first frame update
     void Start()

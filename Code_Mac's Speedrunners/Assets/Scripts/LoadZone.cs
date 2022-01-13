@@ -24,7 +24,8 @@ public class LoadZone : MonoBehaviour
         {
             ScoreHolder.scoreHolder.secondsPlayed = timerScript.seconds;
             ScoreHolder.scoreHolder.minutesPlayed = timerScript.minutes;
-            ScoreHolder.scoreHolder.milisecondsPlayed = timerScript.miliSeconds;
+            ScoreHolder.scoreHolder.millisecondsPlayed = timerScript.miliSeconds;
+            ScoreHolder.scoreHolder.timer = timerScript.timer;
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(scene);
         }

@@ -14,6 +14,8 @@ public class TerminalScript : MonoBehaviour
     //Animation
     public Animator animator;
     public bool invertStartupState;
+
+    public bool firstUse = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +82,12 @@ public class TerminalScript : MonoBehaviour
                 accesTextGranted.SetActive(true);
                 accesTextDenied.SetActive(false);
 
+                if (firstUse)
+                {
+                    ScoreHolder.scoreHolder.terminalsHacked++;
+                    firstUse = false;
+                }
+
                 if (animator.GetBool("State"))
                 {
                     animator.SetBool("State", false);
@@ -87,6 +95,7 @@ public class TerminalScript : MonoBehaviour
                 else if (!animator.GetBool("State"))
                 {
                     animator.SetBool("State", true);
+                    ScoreHolder.scoreHolder.doorsOpened++;
                 }
                 else
                 {
