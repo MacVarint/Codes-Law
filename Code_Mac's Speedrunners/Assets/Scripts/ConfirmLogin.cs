@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI; 
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class ConfirmLogin : MonoBehaviour
 {
@@ -32,9 +33,19 @@ public class ConfirmLogin : MonoBehaviour
         yield return unityWebRequest.SendWebRequest();
         if (unityWebRequest.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log(unityWebRequest.downloadHandler.text);
+            Debug.Log("'"+unityWebRequest.downloadHandler.text+"'");
+
+            LoginHolder.loginHolder.idUser = unityWebRequest.downloadHandler.text;
         }
         yield return null;
+
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        if (LoginHolder.loginHolder.idUser != "PASS")
+        {
+            SceneManager.LoadScene(4);
+        }
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
     public bool VerifyInputs()
     {

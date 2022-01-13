@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class ConfirmRegister : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class ConfirmRegister : MonoBehaviour
             Debug.Log(unityWebRequest.downloadHandler.text);
         }
         yield return null;
+        SceneManager.LoadScene(1);
     }
     public bool VerifyInputs()
     {

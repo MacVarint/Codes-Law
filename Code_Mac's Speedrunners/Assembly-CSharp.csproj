@@ -63,11 +63,15 @@
     <Compile Include="Assets\Scripts\detectionZoneScript.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\PlayerMouse.cs" />
+    <Compile Include="Assets\Scripts\LoginHolder.cs" />
+    <Compile Include="Assets\Scripts\ConfirmLogin.cs" />
     <Compile Include="Assets\Scripts\Click.cs" />
     <Compile Include="Assets\Scripts\CableScript.cs" />
     <Compile Include="Assets\Scripts\DoorController.cs" />
     <Compile Include="Assets\Scripts\sentryScript.cs" />
-    <Compile Include="Assets\Scripts\ConfirmLogin.cs" />
+    <Compile Include="Assets\Scripts\LoadZone.cs" />
+    <Compile Include="Assets\Scripts\ScoreHolder.cs" />
+    <Compile Include="Assets\Scripts\TimerSave.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

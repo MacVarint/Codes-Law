@@ -52,6 +52,5 @@ public class CableScript : MonoBehaviour
             }
 
         }
-        Debug.Log(timer);
     }
 }
