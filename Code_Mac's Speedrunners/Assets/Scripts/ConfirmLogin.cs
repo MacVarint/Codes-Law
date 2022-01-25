@@ -33,9 +33,13 @@ public class ConfirmLogin : MonoBehaviour
         yield return unityWebRequest.SendWebRequest();
         if (unityWebRequest.result == UnityWebRequest.Result.Success)
         {
-            Debug.Log("'"+unityWebRequest.downloadHandler.text+"'");
+            Debug.Log(unityWebRequest.downloadHandler.text);
 
             LoginHolder.loginHolder.idUser = unityWebRequest.downloadHandler.text;
+        } 
+        else if (unityWebRequest.result == UnityWebRequest.Result.ConnectionError)
+        {
+            Debug.Log("ConnectionError");
         }
         yield return null;
 

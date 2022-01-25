@@ -28,12 +28,6 @@ public class PlayerMovement : MonoBehaviour
     private float jumpFromFeet = 3f;
     private float turnspeed = 4f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {

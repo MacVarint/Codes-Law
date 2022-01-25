@@ -33,7 +33,7 @@ public class ScoreSaver : MonoBehaviour
         doorsOpened = scoreHolder.doorsOpened;
         Calculator();
         Converter();
-        NetworkConnection();
+        CallNetworkConnection();
     }
     public void Calculator()
     {
@@ -57,6 +57,8 @@ public class ScoreSaver : MonoBehaviour
     }
     IEnumerator NetworkConnection()
     {
+        Debug.Log("n");
+
         WWWForm form = new WWWForm();
         form.AddField("milliseconds", "" + milliseconds);
         form.AddField("seconds", "" + seconds);
@@ -65,11 +67,15 @@ public class ScoreSaver : MonoBehaviour
         form.AddField("level", scoreHolder.level);
         form.AddField("account_idaccount", LoginHolder.loginHolder.idUser);
         form.AddField("terminalsHacked", "" + terminalsHacked);
-        form.AddField("doorsOpenend", "" + doorsOpened);
+        form.AddField("doorsOpened", "" + doorsOpened);
 
-        UnityWebRequest unityWebRequest = UnityWebRequest.Post("http://localhost/CodesLawPHP/register.php", form);
+        UnityWebRequest unityWebRequest = UnityWebRequest.Post("http://localhost/CodesLawPHP/Save.php", form);
         yield return unityWebRequest.SendWebRequest();
         if (unityWebRequest.result == UnityWebRequest.Result.Success)
+        {
+            Debug.Log(unityWebRequest.downloadHandler.text);
+        }
+        else
         {
             Debug.Log(unityWebRequest.downloadHandler.text);
         }
