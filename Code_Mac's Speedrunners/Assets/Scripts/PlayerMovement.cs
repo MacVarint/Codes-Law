@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     //Player
     public Rigidbody rigidbodyPlayer;
     public Transform playerTransform;
+    public Animator playerAnimator;
 
     //temp
     public int attackDamage = 4;
@@ -35,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         CheckForGround();
         MovePlayer();
         Jump();
+        EscapeMenu();
     }
     private void CheckForGround() //Checks for ground using raycast
     {
@@ -52,6 +54,15 @@ public class PlayerMovement : MonoBehaviour
     }
     private void MovePlayer() //Moves player
     {
+        //WIP
+/*        if (horizontal > 0 || vertical > 0)
+        {
+            playerAnimator.SetBool("State", true);
+        }
+        else
+        {
+            playerAnimator.SetBool("State", false);
+        }*/
         Vector3 horizontalspeed = horizontal * transform.right;
         Vector3 verticalspeed = vertical * transform.forward;
         Vector3 moveDirection = horizontalspeed + verticalspeed;
@@ -63,6 +74,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.W)) //Checks if you are pressing W
         {
+            //WIP
+            playerAnimator.SetBool("isRunning", true);
             float dif = Mathf.Abs(transform.eulerAngles.y - rotationpoint.eulerAngles.y); //Checks the Y rotation of the player
             if (dif < 180) //Checks if Code needs to look to the left
             {
@@ -82,12 +95,24 @@ public class PlayerMovement : MonoBehaviour
                 transform.eulerAngles = new Vector3(transform.eulerAngles.x, Mathf.Lerp(transform.eulerAngles.y, eulerAngY, Time.deltaTime * turnspeed), transform.eulerAngles.z);
             }
         }
+        else
+        {
+            //WIP
+            playerAnimator.SetBool("isRunning", false);
+        }
     }
     private void Jump() //Checks if you press space
     {
         if (jump)
         {
             rigidbodyPlayer.AddForce(Vector2.up * jumpHeight * 2);
+        }
+    }
+    private void EscapeMenu()
+    {
+        if (Input.GetKey(KeyCode.Escape))
+        {
+
         }
     }
 }

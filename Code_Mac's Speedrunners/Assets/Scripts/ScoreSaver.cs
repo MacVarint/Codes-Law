@@ -57,17 +57,15 @@ public class ScoreSaver : MonoBehaviour
     }
     IEnumerator NetworkConnection()
     {
-        Debug.Log("n");
-
+        Debug.Log(" idUser-" + LoginHolder.loginHolder.idUser + " milliseconds-" + milliseconds + " seconds-" + seconds + " minutes-" + minutes + " terminalsHacked-" + terminalsHacked + " doorsOpened-" + doorsOpened + " scoreHolder-" + scoreHolder.level);
         WWWForm form = new WWWForm();
+        form.AddField("account_idaccount", "" + LoginHolder.loginHolder.idUser);
         form.AddField("milliseconds", "" + milliseconds);
         form.AddField("seconds", "" + seconds);
         form.AddField("minutes", "" + minutes);
-
-        form.AddField("level", scoreHolder.level);
-        form.AddField("account_idaccount", LoginHolder.loginHolder.idUser);
         form.AddField("terminalsHacked", "" + terminalsHacked);
         form.AddField("doorsOpened", "" + doorsOpened);
+        form.AddField("level", "" + scoreHolder.level);
 
         UnityWebRequest unityWebRequest = UnityWebRequest.Post("http://localhost/CodesLawPHP/Save.php", form);
         yield return unityWebRequest.SendWebRequest();
