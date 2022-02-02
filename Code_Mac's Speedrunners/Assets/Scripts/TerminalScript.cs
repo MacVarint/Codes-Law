@@ -33,6 +33,10 @@ public class TerminalScript : MonoBehaviour
         {
             animator.SetBool("State", true);
         }
+        else
+        {
+            Debug.Log("ERROR. Integer not assigned in terminal script");
+        }
     }
 
     // Update is called once per frame

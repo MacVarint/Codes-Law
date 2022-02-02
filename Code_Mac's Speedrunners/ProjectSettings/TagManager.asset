@@ -9,6 +9,8 @@ TagManager:
   - Acces text d
   - Sentry
   - Bot
+  - EscapeMenu
+  - Invalid
   layers:
   - Default
   - TransparentFX

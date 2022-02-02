@@ -36,7 +36,6 @@ public class PlayerMovement : MonoBehaviour
         CheckForGround();
         MovePlayer();
         Jump();
-        EscapeMenu();
     }
     private void CheckForGround() //Checks for ground using raycast
     {
@@ -106,13 +105,6 @@ public class PlayerMovement : MonoBehaviour
         if (jump)
         {
             rigidbodyPlayer.AddForce(Vector2.up * jumpHeight * 2);
-        }
-    }
-    private void EscapeMenu()
-    {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-
         }
     }
 }

@@ -9,6 +9,12 @@ public class ConfirmLogin : MonoBehaviour
     public InputField passwordField;
     public InputField eMailField;
     public Button confirm;
+    public GameObject invalid;
+
+    private void Start()
+    {
+        invalid = GameObject.FindGameObjectWithTag("Invalid");
+    }
     void Update()
     {
         if (VerifyInputs())
@@ -47,7 +53,12 @@ public class ConfirmLogin : MonoBehaviour
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         if (LoginHolder.loginHolder.idUser != "PASS")
         {
+            invalid.SetActive(false);
             SceneManager.LoadScene(4);
+        }
+        else
+        {
+            invalid.SetActive(true);
         }
         //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
