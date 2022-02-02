@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Click : MonoBehaviour
 {
+    public static ScoreHolder scoreHolder;
+    public void Start()
+    {
+        scoreHolder = ScoreHolder.scoreHolder;
+    }
+
     public void Proceed()
     {
         SceneManager.LoadScene(1);
@@ -31,7 +37,7 @@ public class Click : MonoBehaviour
     }
     public void LevelSelection()
     {
-    
+        Destroy(scoreHolder);
         SceneManager.LoadScene(5);
     }
     public void LoadGame()
