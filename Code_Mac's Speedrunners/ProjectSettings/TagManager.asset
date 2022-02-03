@@ -11,6 +11,7 @@ TagManager:
   - Bot
   - EscapeMenu
   - Invalid
+  - Jumpable
   layers:
   - Default
   - TransparentFX

@@ -9,8 +9,7 @@ public class PlayerMovement : MonoBehaviour
     //Other
     public LayerMask layerCanJump;
     public Transform rotationpoint;
-    public RaycastHit hit;
-
+    public CheckForGround checkForGround;
 
     //Player
     public Rigidbody rigidbodyPlayer;
@@ -25,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     private float vertical;
     private float movementspeed = 5f;
     private bool jump;
-    private float jumpHeight = 4f;
+    private float jumpHeight = 3f;
     private float jumpFromFeet = 3f;
     private float turnspeed = 4f;
 
@@ -35,12 +34,11 @@ public class PlayerMovement : MonoBehaviour
         Inputs();
         CheckForGround();
         MovePlayer();
-        Jump();
     }
     private void CheckForGround() //Checks for ground using raycast
     {
         
-        if(Physics.Raycast(transform.position, Vector3.down, out hit, jumpFromFeet, layerCanJump))
+        if(checkForGround.isOnGround && Input.GetButton("Jump"))
         {
             Jump();
         }
@@ -102,9 +100,10 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Jump() //Checks if you press space
     {
-        if (jump)
-        {
-            rigidbodyPlayer.AddForce(Vector2.up * jumpHeight * 2);
+        
+        
+        rigidbodyPlayer.AddForce(Vector2.up * jumpHeight * 60);
+        checkForGround.isOnGround = false;
+
         }
-    }
 }

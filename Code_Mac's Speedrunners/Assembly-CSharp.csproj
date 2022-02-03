@@ -55,9 +55,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\TimerScript.cs" />
     <Compile Include="Assets\Scripts\TerminalScript.cs" />
+    <Compile Include="Assets\Scripts\EscapeMenu.cs" />
     <Compile Include="Assets\AssetStoreOriginals\_SNAPS_PrototypingAssets\About\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\DisableHud.cs" />
     <Compile Include="Assets\Scripts\BotScript.cs" />
+    <Compile Include="Assets\Scripts\DoorListener.cs" />
     <Compile Include="Assets\Scripts\ConfirmRegister.cs" />
     <Compile Include="Assets\Scripts\chaseFieldScript.cs" />
     <Compile Include="Assets\Scripts\detectionZoneScript.cs" />
@@ -73,8 +75,7 @@
     <Compile Include="Assets\Scripts\SceneDirector.cs" />
     <Compile Include="Assets\Scripts\ScoreHolder.cs" />
     <Compile Include="Assets\Scripts\ScoreSaver.cs" />
-    <Compile Include="Assets\Scripts\EscapeMenu.cs" />
-    <Compile Include="Assets\Scripts\DoorListener.cs" />
+    <Compile Include="Assets\Scripts\CheckForGround.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
