@@ -398,7 +398,7 @@ Transform:
   m_GameObject: {fileID: 1594075834064571973}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 5.54}
-  m_LocalScale: {x: 3.25, y: 1, z: 10}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_Children: []
   m_Father: {fileID: 2226349297599276020}
   m_RootOrder: 1
@@ -480,7 +480,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sentryScript: {fileID: 0}
   botScript: {fileID: 2864726938741327616}
-  sentry: {fileID: 0}
 --- !u!1 &2920913486774258750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,6 +1273,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbodyBot: {fileID: 3651526971167249344}
+  chaseField: 0
+  aggroOnPlayer: 0
+  armsUp: 0
+  screws: {fileID: 4909875732513829681}
   markers:
   - {fileID: 0}
   - {fileID: 0}
@@ -1281,9 +1284,7 @@ MonoBehaviour:
   - {fileID: 0}
   currentMarker: {fileID: 0}
   switchDistance: 1
-  aggroOnPlayer: 0
-  armsUp: 0
-  screws: {fileID: 4909875732513829681}
+  target: {fileID: 0}
 --- !u!1 &6432995283347614279
 GameObject:
   m_ObjectHideFlags: 0

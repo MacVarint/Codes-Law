@@ -20,6 +20,5 @@ public class CheckForGround : MonoBehaviour
     {
         isOnGround = true;
         Debug.Log(isOnGround);
-
     }
 }

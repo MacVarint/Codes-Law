@@ -24,13 +24,6 @@ public class sentryScript : MonoBehaviour
     //Headlights
     public Transform pole;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (aggroOnPlayer)
@@ -54,7 +47,7 @@ public class sentryScript : MonoBehaviour
     }
     void MoveBot()
     {
-        Vector3 forwardDir = 3 * transform.forward; //time.Deltatime?
+        Vector3 forwardDir = 3 * transform.forward;
         rigidbodyBot.velocity = new Vector3(forwardDir.x, rigidbodyBot.velocity.y, forwardDir.z);
         if ((transform.position - currentMarker.transform.position).magnitude < switchDistance)
         {

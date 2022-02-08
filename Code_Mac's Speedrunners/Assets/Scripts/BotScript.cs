@@ -44,7 +44,7 @@ public class BotScript : MonoBehaviour
     }
     void MoveBot()
     {
-        Vector3 forwardDir = 3 * transform.forward; //time.Deltatime?
+        Vector3 forwardDir = 3 * transform.forward;
         rigidbodyBot.velocity = new Vector3(forwardDir.x, rigidbodyBot.velocity.y, forwardDir.z);
         if ((transform.position - currentMarker.transform.position).magnitude < switchDistance)
         {

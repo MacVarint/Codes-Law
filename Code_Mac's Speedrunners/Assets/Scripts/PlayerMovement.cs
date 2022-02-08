@@ -105,5 +105,5 @@ public class PlayerMovement : MonoBehaviour
         rigidbodyPlayer.AddForce(Vector2.up * jumpHeight * 60);
         checkForGround.isOnGround = false;
 
-        }
+    }
 }
