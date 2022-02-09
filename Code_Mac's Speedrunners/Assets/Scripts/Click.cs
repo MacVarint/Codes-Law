@@ -70,15 +70,19 @@ public class Click : MonoBehaviour
     
         SceneManager.LoadScene(7);
     }
+    public void GameOver()
+    {
+        SceneManager.LoadScene(8);
+    }
     public void HideOut()
     {
     
-        SceneManager.LoadScene(8);
+        SceneManager.LoadScene(9);
     }
     public void Level1()
     {
     
-        SceneManager.LoadScene(9);
+        SceneManager.LoadScene(10);
     }
     public void Level2()
     {

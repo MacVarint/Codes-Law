@@ -11,7 +11,7 @@ public class PlayerMouse : CameraController
     float mouseY = 0;
     private float xRotation = 0f;
 
-    public float backDistance;
+    private float backDistance = 4f;
 
     public Transform mainCamera;
     // Start is called before the first frame update
@@ -42,10 +42,14 @@ public class PlayerMouse : CameraController
         Vector3 tempDirection = mainCamera.position - (transform.position + new Vector3(0,0.5f, 0));
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
-        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0) + Vector3.Normalize(tempDirection) * 0.5f, tempDirection, out hit, 4f))
+        if (Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0) + Vector3.Normalize(tempDirection) * 0.5f, Vector3.Normalize(tempDirection), out hit, backDistance))
         {
             Debug.Log(hit.point);
            mainCamera.position = hit.point - Vector3.Normalize(tempDirection) *  0.05f;
+        }
+        else
+        {
+            mainCamera.position = transform.position + new Vector3(0, 0.5f, 0) + Vector3.Normalize(tempDirection) * (backDistance + 0.45f);
         }
 
     }
@@ -54,7 +58,7 @@ public class PlayerMouse : CameraController
             // Draws a blue line from this transform to the target
             Gizmos.color = Color.red;
         Vector3 tempDirection =  mainCamera.position - (transform.position + new Vector3(0, 0.5f, 0));
-        Gizmos.DrawLine(transform.position + new Vector3(0, 0.5f, 0) + Vector3.Normalize(tempDirection) * 0.5f, transform.position + tempDirection * 100f);
+        Gizmos.DrawLine(transform.position + new Vector3(0, 0.5f, 0) + Vector3.Normalize(tempDirection) * 0.5f, transform.position + new Vector3(0, 0.5f, 0) + Vector3.Normalize(tempDirection) * 5f);
 
         // Gizmos.DrawLine(transform.position, transform.position - tempDirection * 100);
 

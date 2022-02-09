@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\ScoreHolder.cs" />
     <Compile Include="Assets\Scripts\ScoreSaver.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\GameOver.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

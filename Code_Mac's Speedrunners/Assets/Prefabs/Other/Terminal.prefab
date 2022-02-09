@@ -1549,7 +1549,7 @@ GameObject:
   - component: {fileID: 4505709492895676144}
   - component: {fileID: 2036315529736245291}
   - component: {fileID: 2504091868516267216}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: interactionBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1599,6 +1599,9 @@ MonoBehaviour:
   insideCollider: 0
   accesTextGranted: {fileID: 2203328613163265401}
   accesTextDenied: {fileID: 2192561551863880234}
+  animator: {fileID: 0}
+  invertStartupState: 0
+  firstUse: 1
 --- !u!1 &7616938694730101963
 GameObject:
   m_ObjectHideFlags: 0
