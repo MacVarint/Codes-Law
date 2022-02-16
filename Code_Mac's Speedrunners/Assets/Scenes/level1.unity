@@ -18518,7 +18518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerScript: {fileID: 2008579255}
-  scene: 10
+  scene: 11
 --- !u!65 &1231389185
 BoxCollider:
   m_ObjectHideFlags: 0

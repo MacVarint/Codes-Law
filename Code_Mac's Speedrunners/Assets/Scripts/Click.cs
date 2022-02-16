@@ -84,6 +84,10 @@ public class Click : MonoBehaviour
     
         SceneManager.LoadScene(10);
     }
+    public void Result1()
+    {
+        SceneManager.LoadScene(11);
+    }
     public void Level2()
     {
     

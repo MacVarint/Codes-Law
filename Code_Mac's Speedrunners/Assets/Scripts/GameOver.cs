@@ -20,6 +20,7 @@ public class GameOver : Click
     {
         if (other.gameObject.name == "Player")
         {
+            Cursor.lockState = CursorLockMode.None;
             GameOver();
         }
     }
