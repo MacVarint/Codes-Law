@@ -33,7 +33,7 @@ public class ConfirmRegister : MonoBehaviour
         form.AddField("name", nameField.text);
         form.AddField("password", passwordField.text);
         form.AddField("email", eMailField.text);
-        UnityWebRequest unityWebRequest = UnityWebRequest.Post("http://localhost/CodesLawPHP/register.php", form);
+        UnityWebRequest unityWebRequest = UnityWebRequest.Post("http://localhost/Codes_Law-PHP/register.php", form);
         yield return unityWebRequest.SendWebRequest();
         if (unityWebRequest.result == UnityWebRequest.Result.Success)
         {

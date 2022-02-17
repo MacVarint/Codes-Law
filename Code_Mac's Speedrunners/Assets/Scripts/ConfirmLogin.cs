@@ -35,7 +35,7 @@ public class ConfirmLogin : MonoBehaviour
         WWWForm form = new WWWForm();
         form.AddField("password", passwordField.text);
         form.AddField("eMail", eMailField.text);
-        UnityWebRequest unityWebRequest = UnityWebRequest.Post("http://localhost/CodesLawPHP/login.php", form);
+        UnityWebRequest unityWebRequest = UnityWebRequest.Post("http://localhost/Codes_Law-PHP/login.php", form);
         yield return unityWebRequest.SendWebRequest();
         if (unityWebRequest.result == UnityWebRequest.Result.Success)
         {
