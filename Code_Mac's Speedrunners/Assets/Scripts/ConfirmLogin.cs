@@ -40,7 +40,6 @@ public class ConfirmLogin : MonoBehaviour
         if (unityWebRequest.result == UnityWebRequest.Result.Success)
         {
             Debug.Log(unityWebRequest.downloadHandler.text);
-
             LoginHolder.loginHolder.idUser = unityWebRequest.downloadHandler.text;
         } 
         else if (unityWebRequest.result == UnityWebRequest.Result.ConnectionError)

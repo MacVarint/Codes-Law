@@ -81,7 +81,7 @@ public class Click : MonoBehaviour
     }
     public void Level1()
     {
-    
+        Time.timeScale = 1;
         SceneManager.LoadScene(10);
     }
     public void Result1()
