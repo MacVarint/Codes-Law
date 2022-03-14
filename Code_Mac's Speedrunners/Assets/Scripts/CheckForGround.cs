@@ -19,6 +19,6 @@ public class CheckForGround : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         isOnGround = true;
-        Debug.Log(isOnGround);
+   
     }
 }

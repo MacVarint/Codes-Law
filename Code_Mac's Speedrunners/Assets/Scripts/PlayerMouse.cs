@@ -44,7 +44,7 @@ public class PlayerMouse : CameraController
         // Does the ray intersect any objects excluding the player layer
         if (Physics.Raycast(transform.position + new Vector3(0, 0.5f, 0) + Vector3.Normalize(tempDirection) * 0.5f, Vector3.Normalize(tempDirection), out hit, backDistance))
         {
-            Debug.Log(hit.point);
+        
            mainCamera.position = hit.point - Vector3.Normalize(tempDirection) *  0.05f;
         }
         else
